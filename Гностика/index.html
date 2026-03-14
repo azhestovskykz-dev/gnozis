@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#0e1621">
+    <title>Гностика — Библиотека Идей</title>
+    <meta name="description" content="Гностика — Библиотека философских идей, мыслителей, книг и систем мышления">
+    <link rel="stylesheet" href="css/стили.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <!-- МОДАЛКА АВТОРИЗАЦИИ -->
+    <div id="auth-ov" class="auth-ov hidden">
+        <div class="auth-card">
+            <h2>ВХОД В СИСТЕМУ</h2>
+            <input type="password" id="auth-in" placeholder="Пароль">
+            <div class="auth-btns">
+                <button class="btn btn-primary" onclick="checkAuth()">ВОЙТИ</button>
+                <button class="btn btn-secondary" onclick="closeAuth()">ОТМЕНА</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ОВЕРЛЕЙ ДЛЯ МОБИЛЬНОГО (закрывает меню при тапе за пределами) -->
+    <div id="sidebar-overlay" onclick="closeSidebars()"></div>
+
+    <div class="app-container">
+        <!-- ЛЕВАЯ БОКОВАЯ ПАНЕЛЬ -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h1 onclick="goHome()">ГНОСТИКА</h1>
+                <p>Библиотека Идей</p>
+            </div>
+            <nav id="sidebar-nav" class="nav-list">
+                <!-- Категории и авторы будут загружены динамически -->
+            </nav>
+            <div class="sidebar-footer">
+                <button id="admin-btn" onclick="openAuth()">НАСТРОЙКИ</button>
+            </div>
+        </aside>
+
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
+        <main class="main-content">
+            <header class="top-bar">
+                <button class="menu-toggle" id="menu-toggle-btn" onclick="toggleSidebar()" aria-label="Открыть меню">☰</button>
+                <div id="breadcrumb" class="breadcrumb">Главная</div>
+                <button class="filter-toggle" id="filter-toggle-btn" onclick="showInfoPanelMobile()" aria-label="Фильтры" style="display:none;font-size:18px;background:none;border:none;color:var(--text-secondary);cursor:pointer;padding:0 12px;margin-left:auto;">⚙</button>
+                <div id="admin-controls" class="admin-controls hidden">
+                    <button class="btn btn-sm" onclick="editMode()">РЕДАКТИРОВАТЬ</button>
+                    <button class="btn btn-sm btn-danger" onclick="logout()">ВЫЙТИ</button>
+                </div>
+            </header>
+
+            <div id="stage" class="stage">
+                <!-- Контент загружается динамически -->
+            </div>
+        </main>
+
+        <!-- ПРАВАЯ ПАНЕЛЬ (Детали автора) -->
+        <aside id="info-panel" class="info-panel hidden">
+            <div id="author-info" class="author-info">
+                <div id="author-photo" class="author-avatar"></div>
+                <h3 id="author-name"></h3>
+                <p id="author-role"></p>
+            </div>
+            <button class="info-panel-close" onclick="closeInfoPanel()" aria-label="Закрыть">✕</button>
+            <nav id="author-nav" class="author-nav-list">
+                <!-- Навигация по идеям автора -->
+            </nav>
+        </aside>
+    </div>
+
+    <script src="js/логика.js?v=5"></script>
+</body>
+</html>

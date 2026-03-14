@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ГНОЗИС АВТОМАТИК | Библиотека Идей</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="контейнер-приложения">
+        <aside class="боковая-панель">
+            <div class="логотип">
+                <h1>ГНОЗИС</h1>
+                <span class="подзаголовок">АВТОМАТИК</span>
+            </div>
+            
+            <nav class="меню">
+                <div class="секция-меню">
+                    <h3>БИБЛИОТЕКА</h3>
+                    <ul id="список-категорий">
+                        <li class="активно">Все темы</li>
+                        <li>Философия</li>
+                        <li>Наука</li>
+                        <li>Искусство</li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="зона-админа">
+                <button id="кнопка-генерации" class="кнопка-основная">ГЕНЕРИРОВАТЬ НОВОЕ</button>
+            </div>
+        </aside>
+
+        <main class="контент">
+            <header class="верхняя-панель">
+                <div class="панель-поиска">
+                    <input type="text" id="поле-ввода-темы" placeholder="Введите тему (например: Квантовая физика)...">
+                </div>
+                <div class="статус-пользователя">Система готова</div>
+            </header>
+
+            <section class="герой">
+                <h2 id="заголовок-текущей-темы">Добро пожаловать в будущее познания</h2>
+                <p>Введите любую тему, и ИИ создаст автоматизированную подборку идей и иллюстраций.</p>
+            </section>
+
+            <div class="сетка" id="сетка-идей">
+                <!-- Карточки будут добавляться динамически -->
+                <div class="карточка заглушка">
+                    <div class="изображение-карточки"></div>
+                    <div class="тело-карточки">
+                        <h3>Ожидание запроса</h3>
+                        <p>Здесь появятся ваши идеи...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Модальное окно просмотра изображений -->
+    <div id="модальное-окно-просмотра" class="оверлей-просмотра скрыто">
+        <button class="кнопка-закрыть" id="закрыть-просмотр">&times;</button>
+        
+        <button class="стрелка влево" id="стрелка-влево">
+            <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+        </button>
+        
+        <div class="контейнер-изображения">
+            <img id="изображение-в-просмотре" src="" alt="Просмотр">
+            <div class="инфо-панель">
+                <h3 id="заголовок-в-просмотре"></h3>
+                <p id="описание-в-просмотре"></p>
+            </div>
+        </div>
+        
+        <button class="стрелка вправо" id="стрелка-вправо">
+            <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+        </button>
+    </div>
+
+    <!-- Модальное окно генерации -->
+    <div id="завеса-загрузки" class="оверлей скрыто">
+        <div class="контент-загрузчика">
+            <div class="спиннер"></div>
+            <h3>Создаем Гнозис...</h3>
+            <p id="статус-загрузки">Анализируем смыслы...</p>
+        </div>
+    </div>
+
+    <script src="main.js" type="module"></script>
+</body>
+</html>
